@@ -219,23 +219,23 @@ export function Header() {
       </div>
 
       {/* Main Masthead Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-4 sm:py-6">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-5">
+        <div className="flex items-center justify-between gap-2">
           {/* Mobile hamburger & Quick Search */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-1 sm:gap-2 lg:hidden shrink-0">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-xl text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-[#dc2626]" />}
             </button>
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 rounded-lg text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800"
-              aria-label="Search"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-xl text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Search articles"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-5 h-5 text-[var(--text-secondary)]" />
             </button>
           </div>
 
@@ -243,7 +243,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-3 w-72">
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[var(--bg-secondary)] hover:bg-gray-200 dark:hover:bg-gray-800 border border-[var(--border-light)] text-xs text-[var(--text-muted)] transition-colors w-52 cursor-pointer"
+              className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[var(--bg-secondary)] hover:bg-gray-200 dark:hover:bg-gray-800 border border-[var(--border-light)] text-xs text-[var(--text-muted)] transition-colors w-52 cursor-pointer min-h-[38px]"
             >
               <Search className="w-3.5 h-3.5 text-[#dc2626]" />
               <span>Search journalism...</span>
@@ -254,40 +254,40 @@ export function Header() {
           </div>
 
           {/* Central Editorial Masthead Logo */}
-          <div className="text-center flex-1">
-            <Link href="/" className="inline-block group">
-              <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--text-primary)] group-hover:opacity-95 transition-opacity">
+          <div className="text-center flex-1 min-w-0 px-1">
+            <Link href="/" className="inline-block group max-w-full">
+              <h1 className="font-headline text-2xl min-[480px]:text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--text-primary)] group-hover:opacity-95 transition-opacity truncate">
                 What&apos;s Happening<span className="text-[#dc2626]">.</span>
               </h1>
             </Link>
-            <p className="hidden sm:block text-[11px] tracking-widest uppercase font-serif text-[var(--text-muted)] mt-1">
+            <p className="hidden md:block text-[11px] tracking-widest uppercase font-serif text-[var(--text-muted)] mt-0.5">
               Independent Editorial &bull; Accurate, In-Depth, Global Perspective
             </p>
           </div>
 
           {/* Right Action Area (Auth State vs Logged In Avatar Menu) */}
-          <div className="flex items-center justify-end gap-2 sm:gap-3 w-auto lg:w-72">
+          <div className="flex items-center justify-end gap-1.5 sm:gap-2.5 shrink-0 lg:w-72">
             {loading ? (
-              <div className="h-8 w-20 bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse" />
+              <div className="h-9 w-20 bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse" />
             ) : user ? (
               /* LOGGED IN USER AVATAR & DROPDOWN */
-              <div className="flex items-center gap-2 sm:gap-2.5 relative" ref={dropdownRef}>
+              <div className="flex items-center gap-1.5 sm:gap-2.5 relative" ref={dropdownRef}>
                 {/* Notification Bell */}
                 <NotificationBell />
 
                 {/* Write Article Link (writers/admins) */}
                 <Link
                   href="/write"
-                  className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-[var(--border-light)] hover:border-[#dc2626] hover:text-[#dc2626] transition-colors"
+                  className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold border border-[var(--border-light)] hover:border-[#dc2626] hover:text-[#dc2626] transition-colors min-h-[44px]"
                 >
-                  <PenSquare className="w-3.5 h-3.5" />
+                  <PenSquare className="w-3.5 h-3.5 text-[#dc2626]" />
                   <span>Write</span>
                 </Link>
 
                 {/* Avatar Button */}
                 <button
                   onClick={() => setAvatarDropdownOpen(!avatarDropdownOpen)}
-                  className="flex items-center gap-2 p-1 rounded-full hover:ring-2 hover:ring-[#dc2626] transition-all cursor-pointer"
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center p-1 rounded-full hover:ring-2 hover:ring-[#dc2626] transition-all cursor-pointer"
                   aria-expanded={avatarDropdownOpen}
                 >
                   {profile?.avatar_url ? (
@@ -301,12 +301,12 @@ export function Header() {
                       {initialLetter}
                     </div>
                   )}
-                  <ChevronDown className="w-3.5 h-3.5 text-[var(--text-muted)] hidden sm:block" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[var(--text-muted)] hidden sm:block ml-1" />
                 </button>
 
                 {/* Dropdown Menu */}
                 {avatarDropdownOpen && (
-                  <div className="absolute right-0 top-11 w-64 rounded-xl bg-[var(--card-bg)] border border-[var(--border-light)] shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="absolute right-0 top-12 w-64 sm:w-72 rounded-xl bg-[var(--card-bg)] border border-[var(--border-light)] shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95 duration-150 max-w-[calc(100vw-2rem)]">
                     {/* User Header */}
                     <div className="p-3 border-b border-[var(--border-light)] bg-[var(--bg-secondary)] rounded-lg mb-1">
                       <div className="font-semibold text-xs text-[var(--text-primary)] truncate">
@@ -336,7 +336,7 @@ export function Header() {
                       <Link
                         href="/dashboard"
                         onClick={() => setAvatarDropdownOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors min-h-[44px]"
                       >
                         <LayoutDashboard className="w-4 h-4 text-[var(--text-muted)]" />
                         <span>Dashboard</span>
@@ -345,7 +345,7 @@ export function Header() {
                       <Link
                         href="/notifications"
                         onClick={() => setAvatarDropdownOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors min-h-[44px]"
                       >
                         <Bell className="w-4 h-4 text-[var(--text-muted)]" />
                         <span>Notifications</span>
@@ -354,7 +354,7 @@ export function Header() {
                       <Link
                         href="/profile"
                         onClick={() => setAvatarDropdownOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors min-h-[44px]"
                       >
                         <User className="w-4 h-4 text-[var(--text-muted)]" />
                         <span>Profile & Bio</span>
@@ -363,7 +363,7 @@ export function Header() {
                       <Link
                         href="/write"
                         onClick={() => setAvatarDropdownOpen(false)}
-                        className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors min-h-[44px]"
                       >
                         <PenSquare className="w-4 h-4 text-[var(--text-muted)]" />
                         <span>Write Article</span>
@@ -373,7 +373,7 @@ export function Header() {
                         <Link
                           href="/admin"
                           onClick={() => setAvatarDropdownOpen(false)}
-                          className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-purple-700 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/30 transition-colors font-medium"
+                          className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-purple-700 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/30 transition-colors font-medium min-h-[44px]"
                         >
                           <ShieldAlert className="w-4 h-4" />
                           <span>Admin Control Panel</span>
@@ -388,7 +388,7 @@ export function Header() {
                           setAvatarDropdownOpen(false);
                           await signOut();
                         }}
-                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors cursor-pointer"
+                        className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-xs text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors cursor-pointer min-h-[44px]"
                       >
                         <LogOut className="w-4 h-4" />
                         <span>Sign Out</span>
@@ -399,24 +399,51 @@ export function Header() {
               </div>
             ) : (
               /* LOGGED OUT BUTTONS */
-              <>
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <Link
                   href="/login"
-                  className="px-3 sm:px-4 py-1.5 rounded-lg text-xs font-semibold text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  className="px-3 sm:px-4 py-2 rounded-lg text-xs font-semibold text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors min-h-[44px] flex items-center justify-center"
                 >
                   Log In
                 </Link>
                 <Link
                   href="/signup"
-                  className="px-3.5 sm:px-4 py-1.5 rounded-lg text-xs font-semibold bg-[#dc2626] hover:bg-[#b91c1c] text-white shadow-sm transition-all hover:shadow-red-500/20"
+                  className="px-3.5 sm:px-4 py-2 rounded-lg text-xs font-semibold bg-[#dc2626] hover:bg-[#b91c1c] text-white shadow-sm transition-all hover:shadow-red-500/20 min-h-[44px] flex items-center justify-center"
                 >
                   Sign Up
                 </Link>
-              </>
+              </div>
             )}
           </div>
         </div>
       </div>
+
+      {/* Mobile Horizontal Scrollable Category Bar (Requirement 3) */}
+      <nav className="lg:hidden border-t border-[var(--border-light)] bg-[var(--card-bg)] overflow-x-auto no-scrollbar scroll-smooth">
+        <ul className="flex items-center gap-1 px-3 text-xs font-semibold tracking-wide uppercase whitespace-nowrap min-w-max py-0.5">
+          {CATEGORIES.map((cat) => {
+            const isActive = activeCategory === cat.name;
+            return (
+              <li key={cat.name}>
+                <Link
+                  href={cat.href}
+                  onClick={() => setActiveCategory(cat.name)}
+                  className={`inline-flex items-center py-2 px-3 transition-colors relative cursor-pointer min-h-[40px] ${
+                    isActive
+                      ? 'text-[#dc2626] font-bold'
+                      : 'text-[var(--text-secondary)] hover:text-[#dc2626]'
+                  }`}
+                >
+                  <span>{cat.name}</span>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#dc2626]" />
+                  )}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
 
       {/* Editorial Category Navigation Bar (Desktop) */}
       <nav className="hidden lg:block border-t border-[var(--border-light)] bg-[var(--card-bg)]">
@@ -449,116 +476,146 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Backdrop & Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[var(--border-light)] bg-[var(--card-bg)] px-4 py-5 animate-in slide-in-from-top duration-200">
-          {/* User state if logged in */}
-          {user && (
-            <div className="mb-4 p-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)] flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                {profile?.avatar_url ? (
-                  <img
-                    src={profile.avatar_url}
-                    alt={displayName}
-                    className="w-9 h-9 rounded-full object-cover border border-[var(--border-light)]"
-                  />
-                ) : (
-                  <div className="w-9 h-9 rounded-full bg-[#dc2626] text-white flex items-center justify-center font-bold text-xs">
-                    {initialLetter}
+        <>
+          <div
+            onClick={() => setMobileMenuOpen(false)}
+            className="fixed inset-0 top-[110px] z-40 bg-black/50 backdrop-blur-xs lg:hidden animate-fade-in"
+          />
+          <div className="lg:hidden border-t border-[var(--border-light)] bg-[var(--card-bg)] px-4 py-5 animate-in slide-in-from-top duration-200 z-50 relative max-h-[calc(100vh-120px)] overflow-y-auto">
+            {/* User state if logged in */}
+            {user && (
+              <div className="mb-4 p-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)] flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  {profile?.avatar_url ? (
+                    <img
+                      src={profile.avatar_url}
+                      alt={displayName}
+                      className="w-10 h-10 rounded-full object-cover border border-[var(--border-light)]"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-[#dc2626] text-white flex items-center justify-center font-bold text-xs">
+                      {initialLetter}
+                    </div>
+                  )}
+                  <div>
+                    <div className="font-semibold text-xs text-[var(--text-primary)]">{displayName}</div>
+                    <div className="text-[11px] text-[var(--text-muted)]">{profile?.role || 'user'}</div>
                   </div>
-                )}
-                <div>
-                  <div className="font-semibold text-xs">{displayName}</div>
-                  <div className="text-[11px] text-[var(--text-muted)]">{profile?.role || 'user'}</div>
                 </div>
+                <Link
+                  href="/profile"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="min-h-[44px] min-w-[44px] flex items-center justify-center text-xs text-[#dc2626] font-semibold"
+                >
+                  Edit
+                </Link>
               </div>
+            )}
+
+            {/* Quick Action Links on Mobile */}
+            <div className="grid grid-cols-2 gap-2 mb-4">
               <Link
-                href="/profile"
+                href="/write"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-xs text-[#dc2626] font-semibold"
+                className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#dc2626] text-white text-xs font-bold uppercase tracking-wider shadow-sm min-h-[44px]"
               >
-                Edit
+                <PenSquare className="w-4 h-4" />
+                <span>Write Story</span>
+              </Link>
+              <Link
+                href="/notifications"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl border border-[var(--border-light)] bg-[var(--bg-secondary)] text-xs font-semibold text-[var(--text-primary)] min-h-[44px]"
+              >
+                <Bell className="w-4 h-4 text-[#dc2626]" />
+                <span>Alerts</span>
               </Link>
             </div>
-          )}
 
-          <div className="flex items-center gap-2 mb-4">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                setIsSearchOpen(true);
-              }}
-              className="w-full flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] text-xs text-[var(--text-muted)] cursor-pointer"
-            >
-              <Search className="w-4 h-4 text-[#dc2626]" />
-              <span>Search all articles...</span>
-            </button>
-          </div>
+            <div className="flex items-center gap-2 mb-4">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setIsSearchOpen(true);
+                }}
+                className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)] text-xs text-[var(--text-muted)] cursor-pointer min-h-[44px]"
+              >
+                <Search className="w-4 h-4 text-[#dc2626]" />
+                <span>Search all news articles...</span>
+              </button>
+            </div>
 
-          <div className="grid grid-cols-2 gap-2 text-sm">
-            {CATEGORIES.map((cat) => {
-              const isActive = activeCategory === cat.name;
-              return (
-                <Link
-                  key={cat.name}
-                  href={cat.href}
-                  onClick={() => {
-                    setActiveCategory(cat.name);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`p-2.5 rounded-lg font-medium text-xs flex items-center justify-between transition-colors ${
-                    isActive
-                      ? 'text-[#dc2626] bg-[var(--accent-red-subtle)] font-bold border-l-2 border-[#dc2626]'
-                      : 'text-[var(--text-secondary)] hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  <span>{cat.name}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626]" />}
-                </Link>
-              );
-            })}
-          </div>
+            <div className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-2 px-1">
+              Desks & Categories
+            </div>
 
-          <div className="mt-5 pt-4 border-t border-[var(--border-light)] flex gap-2">
-            {user ? (
-              <>
-                <Link
-                  href="/dashboard"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 py-2 text-center text-xs font-semibold rounded-lg border border-[var(--border-light)] text-[var(--text-primary)]"
-                >
-                  Dashboard
-                </Link>
-                <button
-                  onClick={async () => {
-                    setMobileMenuOpen(false);
-                    await signOut();
-                  }}
-                  className="flex-1 py-2 text-center text-xs font-semibold rounded-lg bg-[#dc2626] text-white"
-                >
-                  Sign Out
-                </button>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 py-2 text-center text-xs font-semibold rounded-lg border border-[var(--border-light)] text-[var(--text-primary)]"
-                >
-                  Log In
-                </Link>
-                <Link
-                  href="/signup"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex-1 py-2 text-center text-xs font-semibold rounded-lg bg-[#dc2626] text-white"
-                >
-                  Sign Up
-                </Link>
-              </>
-            )}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+              {CATEGORIES.map((cat) => {
+                const isActive = activeCategory === cat.name;
+                return (
+                  <Link
+                    key={cat.name}
+                    href={cat.href}
+                    onClick={() => {
+                      setActiveCategory(cat.name);
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`p-3 rounded-xl font-medium text-xs flex items-center justify-between transition-colors min-h-[44px] ${
+                      isActive
+                        ? 'text-[#dc2626] bg-[var(--accent-red-subtle)] font-bold border-l-2 border-[#dc2626]'
+                        : 'text-[var(--text-secondary)] hover:bg-gray-100 dark:hover:bg-gray-800'
+                    }`}
+                  >
+                    <span>{cat.name}</span>
+                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#dc2626]" />}
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className="mt-5 pt-4 border-t border-[var(--border-light)] flex gap-2">
+              {user ? (
+                <>
+                  <Link
+                    href="/dashboard"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex-1 py-2.5 text-center text-xs font-semibold rounded-xl border border-[var(--border-light)] text-[var(--text-primary)] min-h-[44px] flex items-center justify-center"
+                  >
+                    Dashboard
+                  </Link>
+                  <button
+                    onClick={async () => {
+                      setMobileMenuOpen(false);
+                      await signOut();
+                    }}
+                    className="flex-1 py-2.5 text-center text-xs font-semibold rounded-xl bg-[#dc2626] text-white min-h-[44px] flex items-center justify-center cursor-pointer"
+                  >
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex-1 py-2.5 text-center text-xs font-semibold rounded-xl border border-[var(--border-light)] text-[var(--text-primary)] min-h-[44px] flex items-center justify-center"
+                  >
+                    Log In
+                  </Link>
+                  <Link
+                    href="/signup"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex-1 py-2.5 text-center text-xs font-semibold rounded-xl bg-[#dc2626] text-white min-h-[44px] flex items-center justify-center"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
-        </div>
+        </>
       )}
 
       {/* Global Search and Auth Modal Fallback */}

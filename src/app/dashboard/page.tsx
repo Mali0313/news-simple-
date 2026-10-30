@@ -380,17 +380,17 @@ function DashboardContent() {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <Link
             href="/write"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-colors"
+            className="inline-flex items-center justify-center min-h-[44px] gap-1.5 px-4 py-2.5 rounded-lg bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-colors"
           >
             <Plus className="w-4 h-4" />
             <span>Write Story</span>
           </Link>
           <Link
             href="/profile"
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg border border-[var(--border-light)] text-xs font-semibold hover:border-[#dc2626] hover:text-[#dc2626] transition-colors"
+            className="inline-flex items-center justify-center min-h-[44px] gap-1.5 px-4 py-2.5 rounded-lg border border-[var(--border-light)] text-xs font-semibold hover:border-[#dc2626] hover:text-[#dc2626] transition-colors"
           >
             <User className="w-4 h-4" />
             <span>Edit Profile</span>
@@ -398,7 +398,7 @@ function DashboardContent() {
           {isAdmin && (
             <Link
               href="/admin"
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-colors"
+              className="inline-flex items-center justify-center min-h-[44px] gap-1.5 px-4 py-2.5 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold uppercase tracking-wider shadow-sm transition-colors"
             >
               <ShieldCheck className="w-4 h-4" />
               <span>Admin Panel</span>
@@ -455,105 +455,109 @@ function DashboardContent() {
       </div>
 
       {/* Main Navigation Tabs: Articles, Bookmarks, Notifications */}
-      <div className="flex gap-2 border-b border-[var(--border-light)] pb-3 mb-6">
-        <button
-          onClick={() => setActiveMainTab('articles')}
-          className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer ${
-            activeMainTab === 'articles'
-              ? 'bg-[#dc2626] text-white shadow-sm'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-          }`}
-        >
-          <FileText className="w-4 h-4" />
-          <span>My Articles ({articles.length})</span>
-        </button>
+      <div className="overflow-x-auto no-scrollbar pb-1 border-b border-[var(--border-light)] mb-6">
+        <div className="flex gap-2 min-w-max">
+          <button
+            onClick={() => setActiveMainTab('articles')}
+            className={`min-h-[44px] px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer ${
+              activeMainTab === 'articles'
+                ? 'bg-[#dc2626] text-white shadow-sm'
+                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+            }`}
+          >
+            <FileText className="w-4 h-4" />
+            <span>My Articles ({articles.length})</span>
+          </button>
 
-        <button
-          onClick={() => setActiveMainTab('bookmarks')}
-          className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer ${
-            activeMainTab === 'bookmarks'
-              ? 'bg-[#dc2626] text-white shadow-sm'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-          }`}
-        >
-          <Bookmark className="w-4 h-4" />
-          <span>My Bookmarks ({bookmarks.length})</span>
-        </button>
+          <button
+            onClick={() => setActiveMainTab('bookmarks')}
+            className={`min-h-[44px] px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer ${
+              activeMainTab === 'bookmarks'
+                ? 'bg-[#dc2626] text-white shadow-sm'
+                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+            }`}
+          >
+            <Bookmark className="w-4 h-4" />
+            <span>My Bookmarks ({bookmarks.length})</span>
+          </button>
 
-        <button
-          onClick={() => setActiveMainTab('notifications')}
-          className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer ${
-            activeMainTab === 'notifications'
-              ? 'bg-[#dc2626] text-white shadow-sm'
-              : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-          }`}
-        >
-          <Bell className="w-4 h-4" />
-          <span>Notifications</span>
-          {unreadNotifs > 0 && (
-            <span className="w-2 h-2 rounded-full bg-red-400 animate-ping" />
-          )}
-        </button>
+          <button
+            onClick={() => setActiveMainTab('notifications')}
+            className={`min-h-[44px] px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer ${
+              activeMainTab === 'notifications'
+                ? 'bg-[#dc2626] text-white shadow-sm'
+                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+            }`}
+          >
+            <Bell className="w-4 h-4" />
+            <span>Notifications</span>
+            {unreadNotifs > 0 && (
+              <span className="w-2 h-2 rounded-full bg-red-400 animate-ping" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* TAB 1: MY ARTICLES */}
       {activeMainTab === 'articles' && (
         <div className="rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm overflow-hidden">
           {/* Subfilter status pills */}
-          <div className="border-b border-[var(--border-light)] px-6 py-4 flex items-center justify-between flex-wrap gap-4">
+          <div className="border-b border-[var(--border-light)] px-4 sm:px-6 py-4 flex items-center justify-between flex-wrap gap-4">
             <h2 className="font-headline text-lg font-bold">Author Posts</h2>
 
-            <div className="flex flex-wrap gap-1 p-1 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] text-xs">
-              <button
-                onClick={() => setActiveStatusTab('all')}
-                className={`px-3 py-1 rounded-md font-medium transition-all ${
-                  activeStatusTab === 'all'
-                    ? 'bg-[var(--card-bg)] shadow-sm text-[var(--text-primary)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                }`}
-              >
-                All ({articles.length})
-              </button>
-              <button
-                onClick={() => setActiveStatusTab('published')}
-                className={`px-3 py-1 rounded-md font-medium transition-all ${
-                  activeStatusTab === 'published'
-                    ? 'bg-[var(--card-bg)] shadow-sm text-[var(--text-primary)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                }`}
-              >
-                Published ({publishedCount})
-              </button>
-              <button
-                onClick={() => setActiveStatusTab('pending')}
-                className={`px-3 py-1 rounded-md font-medium transition-all ${
-                  activeStatusTab === 'pending'
-                    ? 'bg-[var(--card-bg)] shadow-sm text-[var(--text-primary)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                }`}
-              >
-                Pending ({pendingCount})
-              </button>
-              <button
-                onClick={() => setActiveStatusTab('draft')}
-                className={`px-3 py-1 rounded-md font-medium transition-all ${
-                  activeStatusTab === 'draft'
-                    ? 'bg-[var(--card-bg)] shadow-sm text-[var(--text-primary)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                }`}
-              >
-                Drafts ({draftCount})
-              </button>
-              <button
-                onClick={() => setActiveStatusTab('rejected')}
-                className={`px-3 py-1 rounded-md font-medium transition-all ${
-                  activeStatusTab === 'rejected'
-                    ? 'bg-[var(--card-bg)] shadow-sm text-[var(--text-primary)]'
-                    : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
-                }`}
-              >
-                Rejected ({rejectedCount})
-              </button>
+            <div className="overflow-x-auto no-scrollbar w-full sm:w-auto">
+              <div className="flex gap-1 p-1 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] text-xs min-w-max">
+                <button
+                  onClick={() => setActiveStatusTab('all')}
+                  className={`min-h-[36px] px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+                    activeStatusTab === 'all'
+                      ? 'bg-[var(--card-bg)] shadow-sm text-[var(--text-primary)]'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  All ({articles.length})
+                </button>
+                <button
+                  onClick={() => setActiveStatusTab('published')}
+                  className={`min-h-[36px] px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+                    activeStatusTab === 'published'
+                      ? 'bg-[var(--card-bg)] shadow-sm text-[var(--text-primary)]'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  Published ({publishedCount})
+                </button>
+                <button
+                  onClick={() => setActiveStatusTab('pending')}
+                  className={`min-h-[36px] px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+                    activeStatusTab === 'pending'
+                      ? 'bg-[var(--card-bg)] shadow-sm text-[var(--text-primary)]'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  Pending ({pendingCount})
+                </button>
+                <button
+                  onClick={() => setActiveStatusTab('draft')}
+                  className={`min-h-[36px] px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+                    activeStatusTab === 'draft'
+                      ? 'bg-[var(--card-bg)] shadow-sm text-[var(--text-primary)]'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  Drafts ({draftCount})
+                </button>
+                <button
+                  onClick={() => setActiveStatusTab('rejected')}
+                  className={`min-h-[36px] px-3 py-1 rounded-md font-medium transition-all cursor-pointer ${
+                    activeStatusTab === 'rejected'
+                      ? 'bg-[var(--card-bg)] shadow-sm text-[var(--text-primary)]'
+                      : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  Rejected ({rejectedCount})
+                </button>
+              </div>
             </div>
           </div>
 
@@ -906,18 +910,18 @@ function DashboardContent() {
 
       {/* Video Preview Modal (Writer) */}
       {videoPreviewModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
-          <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fade-in">
+          <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-2xl max-h-[90vh] shadow-2xl overflow-hidden flex flex-col">
             <div className="flex items-center justify-between p-4 border-b border-[var(--border-light)]">
               <div className="flex items-center gap-2">
                 <Video className="w-4 h-4 text-[#dc2626]" />
-                <h3 className="font-headline font-bold text-sm truncate max-w-md">
+                <h3 className="font-headline font-bold text-sm truncate max-w-xs sm:max-w-md">
                   {videoPreviewModal.title}
                 </h3>
               </div>
               <button
                 onClick={() => setVideoPreviewModal(null)}
-                className="p-1 rounded-lg hover:bg-[var(--bg-secondary)] text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
+                className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg hover:bg-[var(--bg-secondary)] text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -928,6 +932,7 @@ function DashboardContent() {
                 src={videoPreviewModal.url}
                 controls
                 autoPlay
+                playsInline
                 preload="metadata"
                 className="w-full h-full object-contain"
               >
@@ -938,7 +943,7 @@ function DashboardContent() {
             <div className="p-4 bg-[var(--bg-secondary)]/50 border-t border-[var(--border-light)] flex items-center justify-end">
               <button
                 onClick={() => setVideoPreviewModal(null)}
-                className="px-4 py-1.5 rounded-lg border border-[var(--border-light)] text-xs font-semibold hover:bg-[var(--bg-secondary)] cursor-pointer"
+                className="min-h-[44px] px-5 py-2 rounded-xl border border-[var(--border-light)] text-xs font-semibold hover:bg-[var(--bg-secondary)] cursor-pointer"
               >
                 Close Preview
               </button>
@@ -949,8 +954,8 @@ function DashboardContent() {
 
       {/* Replace Video Modal (Writer) */}
       {replaceVideoTarget && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-          <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-md shadow-2xl p-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+          <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto shadow-2xl p-5 sm:p-6">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <Upload className="w-5 h-5 text-[#dc2626]" />
@@ -961,7 +966,7 @@ function DashboardContent() {
                   if (!isUploadingReplaceVideo) setReplaceVideoTarget(null);
                 }}
                 disabled={isUploadingReplaceVideo}
-                className="p-1 rounded-lg hover:bg-[var(--bg-secondary)] text-[var(--text-muted)] cursor-pointer"
+                className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg hover:bg-[var(--bg-secondary)] text-[var(--text-muted)] cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -976,7 +981,7 @@ function DashboardContent() {
             </p>
 
             {/* Upload Zone */}
-            <div className="border-2 border-dashed border-[var(--border-light)] hover:border-[#dc2626] rounded-xl p-6 text-center transition-colors mb-4 bg-[var(--bg-secondary)]/30">
+            <div className="border-2 border-dashed border-[var(--border-light)] hover:border-[#dc2626] rounded-xl p-5 sm:p-6 text-center transition-colors mb-4 bg-[var(--bg-secondary)]/30">
               <input
                 type="file"
                 accept="video/mp4,video/webm,video/quicktime"
@@ -1024,7 +1029,7 @@ function DashboardContent() {
               <button
                 onClick={() => setReplaceVideoTarget(null)}
                 disabled={isUploadingReplaceVideo}
-                className="px-4 py-2 rounded-xl border border-[var(--border-light)] text-xs font-semibold text-[var(--text-muted)] cursor-pointer"
+                className="min-h-[44px] px-5 py-2 rounded-xl border border-[var(--border-light)] text-xs font-semibold text-[var(--text-muted)] cursor-pointer"
               >
                 Cancel
               </button>

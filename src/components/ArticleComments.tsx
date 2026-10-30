@@ -231,13 +231,13 @@ export function ArticleComments({
               {/* If not logged in, ask for name */}
               {!user && (
                 <div className="flex items-center gap-2">
-                  <User className="w-4 h-4 text-[var(--text-muted)]" />
+                  <User className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
                   <input
                     type="text"
                     value={guestName}
                     onChange={(e) => setGuestName(e.target.value)}
                     placeholder="Your Name (Optional)"
-                    className="text-xs px-3 py-1.5 rounded-lg border border-[var(--border-light)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:outline-none focus:border-[#dc2626] w-full max-w-xs"
+                    className="text-base sm:text-xs min-h-[40px] px-3 py-1.5 rounded-lg border border-[var(--border-light)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:outline-none focus:border-[#dc2626] w-full max-w-xs"
                   />
                 </div>
               )}
@@ -248,7 +248,7 @@ export function ArticleComments({
                 placeholder="What is your perspective on this report? Share your insights..."
                 rows={3}
                 required
-                className="w-full px-4 py-3 rounded-xl border border-[var(--border-light)] bg-[var(--bg-secondary)] text-[var(--text-primary)] text-sm placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[#dc2626]/20 focus:border-[#dc2626] transition-all resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-[var(--border-light)] bg-[var(--bg-secondary)] text-[var(--text-primary)] text-base sm:text-sm placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[#dc2626]/20 focus:border-[#dc2626] transition-all resize-none"
               />
 
               <div className="flex items-center justify-between pt-1">
@@ -259,7 +259,7 @@ export function ArticleComments({
                 <button
                   type="submit"
                   disabled={isSubmitting || !newComment.trim()}
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-bold transition-all shadow-sm hover:shadow disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ml-auto"
+                  className="min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-bold transition-all shadow-sm hover:shadow disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ml-auto"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Post Comment</span>
@@ -323,24 +323,24 @@ export function ArticleComments({
                 {canDelete && (
                   <button
                     onClick={() => handleDeleteComment(comm.id)}
-                    className="text-[var(--text-muted)] hover:text-red-600 transition-colors p-1.5 rounded-full hover:bg-red-50 dark:hover:bg-red-950/40 cursor-pointer"
+                    className="text-[var(--text-muted)] hover:text-red-600 transition-colors p-2 rounded-full hover:bg-red-50 dark:hover:bg-red-950/40 cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
                     title="Delete comment"
                   >
-                    <Trash2 className="w-3.5 h-3.5" />
+                    <Trash2 className="w-4 h-4" />
                   </button>
                 )}
               </div>
 
               {/* Comment Content */}
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed pl-12 whitespace-pre-line">
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed pl-2 sm:pl-12 whitespace-pre-line break-words">
                 {comm.content}
               </p>
 
               {/* Comment Interactions */}
-              <div className="flex items-center gap-4 pl-12 mt-3 pt-2 text-xs text-[var(--text-muted)]">
+              <div className="flex items-center gap-4 pl-2 sm:pl-12 mt-3 pt-2 text-xs text-[var(--text-muted)]">
                 <button
                   onClick={() => toggleCommentLike(comm.id)}
-                  className={`inline-flex items-center gap-1.5 transition-colors cursor-pointer ${
+                  className={`min-h-[36px] px-2 py-1 inline-flex items-center gap-1.5 transition-colors cursor-pointer rounded-lg hover:bg-[var(--bg-secondary)] ${
                     comm.likedByMe
                       ? 'text-[#dc2626] font-bold'
                       : 'hover:text-[#dc2626]'
@@ -359,7 +359,7 @@ export function ArticleComments({
                     setReplyingTo(comm.id);
                     setNewComment(`@${comm.authorName} `);
                   }}
-                  className="inline-flex items-center gap-1 hover:text-[#dc2626] transition-colors cursor-pointer"
+                  className="min-h-[36px] px-2 py-1 inline-flex items-center gap-1 hover:text-[#dc2626] transition-colors cursor-pointer rounded-lg hover:bg-[var(--bg-secondary)]"
                 >
                   <CornerDownRight className="w-3.5 h-3.5" />
                   <span>Reply</span>

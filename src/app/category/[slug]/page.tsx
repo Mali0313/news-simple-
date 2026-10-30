@@ -55,24 +55,24 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
     <div className="min-h-screen flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)]">
       <Header />
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12 w-full">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-12 w-full">
         {/* Category Desk Header Banner */}
-        <div className="border-b-2 border-[#dc2626] pb-6 mb-10">
+        <div className="border-b-2 border-[#dc2626] pb-6 mb-8 sm:mb-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-[#dc2626] block mb-1">
                 Editorial Desk
               </span>
-              <h1 className="font-headline text-4xl sm:text-5xl font-extrabold tracking-tight">
+              <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight break-words">
                 {category.name}<span className="text-[#dc2626]">.</span>
               </h1>
-              <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-2 max-w-2xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-2 max-w-2xl leading-relaxed break-words">
                 {category.description}
               </p>
             </div>
 
             <div className="text-xs text-[var(--text-muted)] self-start sm:self-end">
-              <span className="px-3 py-1 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-light)] font-medium">
+              <span className="px-3 py-1 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-light)] font-medium inline-block">
                 {total} {total === 1 ? 'Dispatch' : 'Dispatches'} Archived
               </span>
             </div>
@@ -81,17 +81,17 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
         {/* Empty State */}
         {articles.length === 0 ? (
-          <div className="py-16 text-center max-w-md mx-auto">
+          <div className="py-16 text-center max-w-md mx-auto px-4">
             <div className="w-16 h-16 rounded-full bg-red-50 text-[#dc2626] dark:bg-red-950/40 flex items-center justify-center mx-auto mb-4">
               <FileText className="w-8 h-8" />
             </div>
-            <h2 className="font-headline text-2xl font-bold mb-2">No dispatches in this desk yet</h2>
+            <h2 className="font-headline text-xl sm:text-2xl font-bold mb-2">No dispatches in this desk yet</h2>
             <p className="text-xs text-[var(--text-muted)] mb-6 leading-relaxed">
               Our foreign correspondents and desk editors are currently preparing reports for this section.
             </p>
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm"
+              className="inline-flex items-center justify-center min-h-[44px] gap-2 px-6 py-2.5 rounded-lg bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm"
             >
               Explore Front Page
             </Link>
@@ -101,9 +101,9 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
           <div className="space-y-8">
             {/* Lead Story for first page */}
             {currentPage === 1 && articles.length > 0 && (
-              <article className="border-b border-[var(--border-light)] pb-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <article className="border-b border-[var(--border-light)] pb-8 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
                 <div className="lg:col-span-7">
-                  <div className="flex items-center gap-2 mb-2 text-xs">
+                  <div className="flex flex-wrap items-center gap-2 mb-2 text-xs">
                     <span className="font-bold text-[#dc2626] uppercase tracking-wider">
                       Featured In {category.name}
                     </span>
@@ -119,19 +119,19 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                   </div>
 
                   <Link href={`/news/${articles[0].slug}`} className="group">
-                    <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug group-hover:text-[#dc2626] transition-colors">
+                    <h2 className="font-headline text-xl min-[480px]:text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug group-hover:text-[#dc2626] transition-colors break-words">
                       {articles[0].title}
                     </h2>
                   </Link>
 
-                  <p className="text-sm text-[var(--text-secondary)] mt-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-3 leading-relaxed break-words">
                     {articles[0].excerpt}
                   </p>
 
                   <div className="flex items-center justify-between mt-4 pt-3 border-t border-[var(--border-light)] text-xs text-[var(--text-muted)]">
                     <Link
                       href={`/author/${articles[0].author_id}`}
-                      className="font-semibold text-[var(--text-primary)] hover:text-[#dc2626]"
+                      className="font-semibold text-[var(--text-primary)] hover:text-[#dc2626] min-h-[36px] flex items-center"
                     >
                       By {articles[0].author?.full_name || 'Staff Reporter'}
                     </Link>
@@ -151,6 +151,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                       <img
                         src={articles[0].cover_image_url}
                         alt={articles[0].title}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       {articles[0].video_url && articles[0].is_approved && (
@@ -165,11 +166,11 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
             )}
 
             {/* Grid of Remaining Stories */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {(currentPage === 1 ? articles.slice(1) : articles).map((article) => (
                 <article
                   key={article.id}
-                  className="p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
+                  className="p-4 sm:p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
                 >
                   <div>
                     {article.cover_image_url && (
@@ -180,6 +181,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                         <img
                           src={article.cover_image_url}
                           alt={article.title}
+                          loading="lazy"
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         />
                         {article.video_url && article.is_approved && (
@@ -190,7 +192,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                       </Link>
                     )}
 
-                    <div className="flex items-center gap-2 mb-1.5 text-[11px] text-[var(--text-muted)]">
+                    <div className="flex flex-wrap items-center gap-2 mb-1.5 text-[11px] text-[var(--text-muted)]">
                       {article.video_url && article.is_approved && (
                         <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#dc2626] text-white">
                           <span>▶</span> Video
@@ -202,22 +204,22 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                     </div>
 
                     <Link href={`/news/${article.slug}`}>
-                      <h3 className="font-headline font-bold text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2">
+                      <h3 className="font-headline font-bold text-base sm:text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2 break-words">
                         {article.title}
                       </h3>
                     </Link>
 
                     {article.excerpt && (
-                      <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2 leading-relaxed">
+                      <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2 leading-relaxed break-words">
                         {article.excerpt}
                       </p>
                     )}
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-[var(--border-light)] flex items-center justify-between text-xs text-[var(--text-muted)]">
+                  <div className="mt-4 pt-3 border-t border-[var(--border-light)] flex items-center justify-between text-xs text-[var(--text-muted)]">
                     <Link
                       href={`/author/${article.author_id}`}
-                      className="font-medium hover:text-[#dc2626] transition-colors"
+                      className="font-medium hover:text-[#dc2626] transition-colors truncate max-w-[150px] min-h-[36px] flex items-center"
                     >
                       {article.author?.full_name || 'Staff Reporter'}
                     </Link>
@@ -229,18 +231,18 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-              <div className="pt-10 border-t border-[var(--border-light)] flex items-center justify-between">
-                <div>
+              <div className="pt-8 border-t border-[var(--border-light)] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="w-full sm:w-auto flex justify-start">
                   {currentPage > 1 ? (
                     <Link
                       href={`/category/${slug}?page=${currentPage - 1}`}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[var(--border-light)] text-xs font-semibold hover:border-[#dc2626] hover:text-[#dc2626] transition-colors"
+                      className="inline-flex items-center justify-center min-h-[44px] gap-1.5 px-4 py-2 rounded-lg border border-[var(--border-light)] text-xs font-semibold hover:border-[#dc2626] hover:text-[#dc2626] transition-colors w-full sm:w-auto"
                     >
                       <ChevronLeft className="w-4 h-4" />
                       <span>Previous Page</span>
                     </Link>
                   ) : (
-                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[var(--border-light)] text-xs font-semibold opacity-40 cursor-not-allowed">
+                    <span className="inline-flex items-center justify-center min-h-[44px] gap-1.5 px-4 py-2 rounded-lg border border-[var(--border-light)] text-xs font-semibold opacity-40 cursor-not-allowed w-full sm:w-auto">
                       <ChevronLeft className="w-4 h-4" />
                       <span>Previous Page</span>
                     </span>
@@ -252,17 +254,17 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                   <strong className="text-[var(--text-primary)]">{totalPages}</strong>
                 </div>
 
-                <div>
+                <div className="w-full sm:w-auto flex justify-end">
                   {currentPage < totalPages ? (
                     <Link
                       href={`/category/${slug}?page=${currentPage + 1}`}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[var(--border-light)] text-xs font-semibold hover:border-[#dc2626] hover:text-[#dc2626] transition-colors"
+                      className="inline-flex items-center justify-center min-h-[44px] gap-1.5 px-4 py-2 rounded-lg border border-[var(--border-light)] text-xs font-semibold hover:border-[#dc2626] hover:text-[#dc2626] transition-colors w-full sm:w-auto"
                     >
                       <span>Next Page</span>
                       <ChevronRight className="w-4 h-4" />
                     </Link>
                   ) : (
-                    <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[var(--border-light)] text-xs font-semibold opacity-40 cursor-not-allowed">
+                    <span className="inline-flex items-center justify-center min-h-[44px] gap-1.5 px-4 py-2 rounded-lg border border-[var(--border-light)] text-xs font-semibold opacity-40 cursor-not-allowed w-full sm:w-auto">
                       <span>Next Page</span>
                       <ChevronRight className="w-4 h-4" />
                     </span>
@@ -274,7 +276,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         )}
 
         {/* Other Desks Navigation Footer */}
-        <section className="mt-16 pt-10 border-t border-[var(--border-light)]">
+        <section className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-[var(--border-light)]">
           <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] block mb-4">
             Navigate to Other Desks
           </span>
@@ -285,7 +287,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                 <Link
                   key={c.id}
                   href={`/category/${c.slug}`}
-                  className="px-3.5 py-2 rounded-lg text-xs bg-[var(--card-bg)] hover:bg-[var(--accent-red-subtle)] hover:text-[#dc2626] border border-[var(--border-light)] transition-colors font-medium"
+                  className="px-3.5 py-2.5 min-h-[44px] inline-flex items-center rounded-lg text-xs bg-[var(--card-bg)] hover:bg-[var(--accent-red-subtle)] hover:text-[#dc2626] border border-[var(--border-light)] transition-colors font-medium"
                 >
                   {c.name}
                 </Link>

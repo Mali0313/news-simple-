@@ -89,11 +89,11 @@ export function AuthModal({ isOpen, onClose, mode: controlledMode, initialMode =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-light)] w-full max-w-md rounded-2xl shadow-2xl overflow-hidden p-6 relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/65 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-light)] w-full max-w-md max-h-[85vh] overflow-y-auto rounded-2xl shadow-2xl p-5 sm:p-6 relative">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="absolute top-4 right-4 p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -118,7 +118,7 @@ export function AuthModal({ isOpen, onClose, mode: controlledMode, initialMode =
               setMode('login');
               setMessage(null);
             }}
-            className={`py-1.5 text-xs font-semibold rounded-md transition-all ${
+            className={`min-h-[38px] py-2 text-xs font-semibold rounded-md transition-all cursor-pointer ${
               mode === 'login'
                 ? 'bg-[var(--card-bg)] text-[var(--text-primary)] shadow-sm'
                 : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
@@ -132,7 +132,7 @@ export function AuthModal({ isOpen, onClose, mode: controlledMode, initialMode =
               setMode('signup');
               setMessage(null);
             }}
-            className={`py-1.5 text-xs font-semibold rounded-md transition-all ${
+            className={`min-h-[38px] py-2 text-xs font-semibold rounded-md transition-all cursor-pointer ${
               mode === 'signup'
                 ? 'bg-[var(--card-bg)] text-[var(--text-primary)] shadow-sm'
                 : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
@@ -169,14 +169,14 @@ export function AuthModal({ isOpen, onClose, mode: controlledMode, initialMode =
                 Full Name
               </label>
               <div className="relative">
-                <User className="w-4 h-4 absolute left-3 top-2.5 text-[var(--text-muted)]" />
+                <User className="w-4 h-4 absolute left-3 top-3.5 text-[var(--text-muted)]" />
                 <input
                   type="text"
                   required
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="Eleanor Vance"
-                  className="w-full pl-9 pr-3 py-2 text-sm rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
+                  className="w-full pl-10 pr-3 py-3 text-base sm:text-sm min-h-[44px] rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
                 />
               </div>
             </div>
@@ -187,14 +187,14 @@ export function AuthModal({ isOpen, onClose, mode: controlledMode, initialMode =
               Email Address
             </label>
             <div className="relative">
-              <Mail className="w-4 h-4 absolute left-3 top-2.5 text-[var(--text-muted)]" />
+              <Mail className="w-4 h-4 absolute left-3 top-3.5 text-[var(--text-muted)]" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@example.com"
-                className="w-full pl-9 pr-3 py-2 text-sm rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
+                className="w-full pl-10 pr-3 py-3 text-base sm:text-sm min-h-[44px] rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
               />
             </div>
           </div>
@@ -204,14 +204,14 @@ export function AuthModal({ isOpen, onClose, mode: controlledMode, initialMode =
               Password
             </label>
             <div className="relative">
-              <Lock className="w-4 h-4 absolute left-3 top-2.5 text-[var(--text-muted)]" />
+              <Lock className="w-4 h-4 absolute left-3 top-3.5 text-[var(--text-muted)]" />
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-9 pr-3 py-2 text-sm rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
+                className="w-full pl-10 pr-3 py-3 text-base sm:text-sm min-h-[44px] rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
               />
             </div>
           </div>
@@ -219,7 +219,7 @@ export function AuthModal({ isOpen, onClose, mode: controlledMode, initialMode =
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 px-4 rounded-lg bg-[#dc2626] hover:bg-[#b91c1c] text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-60"
+            className="w-full min-h-[44px] py-3 px-4 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-60 cursor-pointer"
           >
             <span>{loading ? 'Processing...' : mode === 'login' ? 'Sign In' : 'Create Account'}</span>
             {!loading && <ArrowRight className="w-4 h-4" />}

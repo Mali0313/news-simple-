@@ -168,7 +168,7 @@ export function ArticleAudioPlayer({ title, content, excerpt }: ArticleAudioPlay
           {/* Speed Toggle */}
           <button
             onClick={changeSpeed}
-            className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-[var(--card-bg)] hover:bg-gray-100 dark:hover:bg-gray-800 text-[var(--text-primary)] border border-[var(--border-light)] transition-colors cursor-pointer"
+            className="min-h-[44px] min-w-[44px] px-3 py-2 text-xs font-semibold rounded-xl bg-[var(--card-bg)] hover:bg-gray-100 dark:hover:bg-gray-800 text-[var(--text-primary)] border border-[var(--border-light)] transition-colors cursor-pointer flex items-center justify-center"
             title="Adjust reading speed"
           >
             {rate}x
@@ -178,7 +178,7 @@ export function ArticleAudioPlayer({ title, content, excerpt }: ArticleAudioPlay
           {isPlaying ? (
             <button
               onClick={handlePause}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-sm transition-all cursor-pointer"
+              className="min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-sm transition-all cursor-pointer"
             >
               <Pause className="w-4 h-4 fill-current" />
               <span>Pause</span>
@@ -186,7 +186,7 @@ export function ArticleAudioPlayer({ title, content, excerpt }: ArticleAudioPlay
           ) : (
             <button
               onClick={handlePlay}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-bold shadow-sm transition-all hover:shadow-red-500/20 cursor-pointer"
+              className="min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-bold shadow-sm transition-all hover:shadow-red-500/20 cursor-pointer"
             >
               <Play className="w-4 h-4 fill-current" />
               <span>{isPaused ? 'Resume' : 'Listen'}</span>
@@ -198,7 +198,7 @@ export function ArticleAudioPlayer({ title, content, excerpt }: ArticleAudioPlay
             <button
               onClick={handleStop}
               aria-label="Stop audio"
-              className="p-2 rounded-xl bg-[var(--card-bg)] hover:bg-gray-100 dark:hover:bg-gray-800 text-[var(--text-muted)] hover:text-red-600 border border-[var(--border-light)] transition-colors cursor-pointer"
+              className="min-h-[44px] min-w-[44px] p-2.5 rounded-xl bg-[var(--card-bg)] hover:bg-gray-100 dark:hover:bg-gray-800 text-[var(--text-muted)] hover:text-red-600 border border-[var(--border-light)] transition-colors cursor-pointer flex items-center justify-center"
               title="Stop playback"
             >
               <RotateCcw className="w-4 h-4" />

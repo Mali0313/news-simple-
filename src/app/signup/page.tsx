@@ -82,13 +82,13 @@ export default function SignupPage() {
       <Header />
 
       <main className="flex-1 flex items-center justify-center p-4 sm:p-8">
-        <div className="w-full max-w-md bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div className="w-full max-w-md bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl p-5 sm:p-8 shadow-xl">
           {/* Header */}
           <div className="text-center mb-6">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#dc2626]">
               Reader & Writer Membership
             </span>
-            <h1 className="font-headline text-3xl font-extrabold tracking-tight mt-1">
+            <h1 className="font-headline text-2xl sm:text-3xl font-extrabold tracking-tight mt-1">
               Create an Account<span className="text-[#dc2626]">.</span>
             </h1>
             <p className="text-xs text-[var(--text-muted)] mt-1.5">
@@ -118,14 +118,14 @@ export default function SignupPage() {
                 Full Name
               </label>
               <div className="relative">
-                <User className="w-4 h-4 absolute left-3 top-3 text-[var(--text-muted)]" />
+                <User className="w-4 h-4 absolute left-3 top-3.5 text-[var(--text-muted)]" />
                 <input
                   type="text"
                   required
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="Eleanor Vance"
-                  className="w-full pl-9 pr-3 py-2.5 text-sm rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
+                  className="w-full pl-10 pr-3 py-3 text-base sm:text-sm min-h-[44px] rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
                 />
               </div>
             </div>
@@ -136,14 +136,14 @@ export default function SignupPage() {
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 absolute left-3 top-3 text-[var(--text-muted)]" />
+                <Mail className="w-4 h-4 absolute left-3 top-3.5 text-[var(--text-muted)]" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@example.com"
-                  className="w-full pl-9 pr-3 py-2.5 text-sm rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
+                  className="w-full pl-10 pr-3 py-3 text-base sm:text-sm min-h-[44px] rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
                 />
               </div>
             </div>
@@ -154,19 +154,19 @@ export default function SignupPage() {
                 Password
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 absolute left-3 top-3 text-[var(--text-muted)]" />
+                <Lock className="w-4 h-4 absolute left-3 top-3.5 text-[var(--text-muted)]" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="At least 6 characters"
-                  className="w-full pl-9 pr-10 py-2.5 text-sm rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
+                  className="w-full pl-10 pr-12 py-3 text-base sm:text-sm min-h-[44px] rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-3 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+                  className="absolute right-2 top-2 p-2 min-h-[36px] min-w-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -178,7 +178,7 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 px-4 rounded-lg bg-[#dc2626] hover:bg-[#b91c1c] text-white text-sm font-semibold tracking-wide uppercase transition-all shadow-sm flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
+              className="w-full min-h-[44px] py-3 px-4 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-sm font-semibold tracking-wide uppercase transition-all shadow-sm flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
             >
               <span>{loading ? 'Creating Account...' : 'Create Account'}</span>
               {!loading && <ArrowRight className="w-4 h-4" />}

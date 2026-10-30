@@ -57,11 +57,11 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
   return (
     <div className="rounded-xl border border-[var(--border-light)] bg-[var(--card-bg)] overflow-hidden shadow-sm transition-colors focus-within:border-[#dc2626]">
       {/* Toolbar */}
-      <div className="flex flex-wrap items-center gap-1 p-2 bg-[var(--bg-secondary)] border-b border-[var(--border-light)] text-[var(--text-secondary)]">
+      <div className="flex flex-wrap items-center gap-1.5 p-2 bg-[var(--bg-secondary)] border-b border-[var(--border-light)] text-[var(--text-secondary)]">
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={`p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors ${
+          className={`min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer ${
             editor.isActive('bold') ? 'bg-red-100 text-[#dc2626] dark:bg-red-950/60' : ''
           }`}
           title="Bold (Ctrl+B)"
@@ -72,7 +72,7 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={`p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors ${
+          className={`min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer ${
             editor.isActive('italic') ? 'bg-red-100 text-[#dc2626] dark:bg-red-950/60' : ''
           }`}
           title="Italic (Ctrl+I)"
@@ -80,12 +80,12 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
           <Italic className="w-4 h-4" />
         </button>
 
-        <div className="w-[1px] h-4 bg-[var(--border-light)] mx-1" />
+        <div className="w-[1px] h-5 bg-[var(--border-light)] mx-1" />
 
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-          className={`p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors ${
+          className={`min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer ${
             editor.isActive('heading', { level: 2 })
               ? 'bg-red-100 text-[#dc2626] dark:bg-red-950/60'
               : ''
@@ -98,7 +98,7 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-          className={`p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors ${
+          className={`min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer ${
             editor.isActive('heading', { level: 3 })
               ? 'bg-red-100 text-[#dc2626] dark:bg-red-950/60'
               : ''
@@ -108,12 +108,12 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
           <Heading3 className="w-4 h-4" />
         </button>
 
-        <div className="w-[1px] h-4 bg-[var(--border-light)] mx-1" />
+        <div className="w-[1px] h-5 bg-[var(--border-light)] mx-1" />
 
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={`p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors ${
+          className={`min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer ${
             editor.isActive('bulletList') ? 'bg-red-100 text-[#dc2626] dark:bg-red-950/60' : ''
           }`}
           title="Bullet List"
@@ -124,7 +124,7 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className={`p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors ${
+          className={`min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer ${
             editor.isActive('orderedList') ? 'bg-red-100 text-[#dc2626] dark:bg-red-950/60' : ''
           }`}
           title="Numbered List"
@@ -135,7 +135,7 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
-          className={`p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors ${
+          className={`min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer ${
             editor.isActive('blockquote') ? 'bg-red-100 text-[#dc2626] dark:bg-red-950/60' : ''
           }`}
           title="Quote"
@@ -146,7 +146,7 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleCode().run()}
-          className={`p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors ${
+          className={`min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer ${
             editor.isActive('code') ? 'bg-red-100 text-[#dc2626] dark:bg-red-950/60' : ''
           }`}
           title="Code snippet"
@@ -157,19 +157,19 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
         <button
           type="button"
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
-          className="p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+          className="min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors cursor-pointer"
           title="Horizontal Rule"
         >
           <Minus className="w-4 h-4" />
         </button>
 
-        <div className="w-[1px] h-4 bg-[var(--border-light)] mx-1" />
+        <div className="w-[1px] h-5 bg-[var(--border-light)] mx-1" />
 
         <button
           type="button"
           onClick={() => editor.chain().focus().undo().run()}
           disabled={!editor.can().undo()}
-          className="p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors disabled:opacity-40"
+          className="min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors disabled:opacity-40 cursor-pointer"
           title="Undo"
         >
           <Undo className="w-4 h-4" />
@@ -179,7 +179,7 @@ export function RichTextEditor({ content, onChange, placeholder }: RichTextEdito
           type="button"
           onClick={() => editor.chain().focus().redo().run()}
           disabled={!editor.can().redo()}
-          className="p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors disabled:opacity-40"
+          className="min-h-[38px] min-w-[38px] sm:min-h-0 sm:min-w-0 p-2 sm:p-1.5 rounded flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors disabled:opacity-40 cursor-pointer"
           title="Redo"
         >
           <Redo className="w-4 h-4" />

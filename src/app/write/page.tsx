@@ -650,7 +650,7 @@ function WriteForm() {
                   className="w-full px-3 py-2 text-xs rounded-lg bg-[var(--card-bg)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors"
                 />
 
-                <label className="px-4 py-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] hover:border-[#dc2626] text-xs font-semibold text-[var(--text-primary)] transition-colors flex items-center gap-1.5 shrink-0 cursor-pointer">
+                <label className="min-h-[44px] px-4 py-2.5 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-light)] hover:border-[#dc2626] text-xs font-semibold text-[var(--text-primary)] transition-colors flex items-center justify-center gap-1.5 shrink-0 cursor-pointer">
                   <Upload className={`w-3.5 h-3.5 ${uploadingImage ? 'animate-spin' : ''}`} />
                   <span>{uploadingImage ? 'Uploading...' : 'Upload'}</span>
                   <input
@@ -901,9 +901,9 @@ function WriteForm() {
                   e.stopPropagation();
                   videoInputRef.current?.click();
                 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-semibold shadow-sm transition-colors cursor-pointer"
+                className="min-h-[44px] inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-semibold shadow-sm transition-colors cursor-pointer"
               >
-                <Upload className="w-3.5 h-3.5" />
+                <Upload className="w-4 h-4" />
                 <span>Choose file</span>
               </button>
 
@@ -941,16 +941,16 @@ function WriteForm() {
 
         {/* Actions Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[var(--border-light)]">
-          <div className="text-xs text-[var(--text-muted)]">
+          <div className="text-xs text-[var(--text-muted)] text-center sm:text-left">
             <span>Clicking &ldquo;Publish Live&rdquo; makes this article immediately visible to the public.</span>
           </div>
 
-          <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto justify-end">
             <button
               type="button"
               disabled={saving}
               onClick={() => handleSave('draft')}
-              className="flex-1 sm:flex-none px-4 py-2.5 rounded-lg border border-[var(--border-light)] text-xs font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
+              className="w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-xl border border-[var(--border-light)] text-xs font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
             >
               <Save className="w-4 h-4 text-[var(--text-muted)]" />
               <span>Save Draft</span>
@@ -960,7 +960,7 @@ function WriteForm() {
               type="button"
               disabled={saving}
               onClick={() => handleSave('submit')}
-              className="flex-1 sm:flex-none px-6 py-2.5 rounded-lg bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-semibold tracking-wide uppercase transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-60 cursor-pointer"
+              className="w-full sm:w-auto min-h-[44px] px-6 py-2.5 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-semibold tracking-wide uppercase transition-colors flex items-center justify-center gap-2 shadow-sm disabled:opacity-60 cursor-pointer"
             >
               <Sparkles className="w-4 h-4" />
               <span>{saving ? 'Publishing...' : 'Publish Live'}</span>

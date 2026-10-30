@@ -144,8 +144,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
       <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 w-full">
         {/* Breadcrumb Bar */}
-        <nav className="flex items-center gap-2 text-xs text-[var(--text-muted)] mb-6 overflow-x-auto whitespace-nowrap">
-          <Link href="/" className="hover:text-[#dc2626] transition-colors">
+        <nav className="flex items-center gap-2 text-xs text-[var(--text-muted)] mb-6 overflow-x-auto no-scrollbar whitespace-nowrap py-1">
+          <Link href="/" className="hover:text-[#dc2626] transition-colors min-h-[36px] flex items-center">
             Front Page
           </Link>
           <ChevronRight className="w-3 h-3 shrink-0" />
@@ -153,7 +153,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <>
               <Link
                 href={`/category/${article.category.slug}`}
-                className="hover:text-[#dc2626] font-medium text-[var(--text-primary)] transition-colors"
+                className="hover:text-[#dc2626] font-medium text-[var(--text-primary)] transition-colors min-h-[36px] flex items-center"
               >
                 {article.category.name}
               </Link>
@@ -200,13 +200,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </div>
 
           {/* Headline */}
-          <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-5">
+          <h1 className="font-headline text-2xl min-[480px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight mb-5 break-words">
             {article.title}
           </h1>
 
           {/* Excerpt Lead */}
           {article.excerpt && (
-            <p className="font-serif italic text-lg sm:text-xl text-[var(--text-secondary)] leading-relaxed mb-6">
+            <p className="font-serif italic text-base sm:text-xl text-[var(--text-secondary)] leading-relaxed mb-6 break-words">
               {article.excerpt}
             </p>
           )}
@@ -334,7 +334,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                       {trimmed}
                     </blockquote>
                   ) : (
-                    <p className="text-justify leading-relaxed">{trimmed}</p>
+                    <p className="text-left leading-relaxed break-words">{trimmed}</p>
                   )}
 
                   {/* High Impact Monetization: In-Article Ad Banner inserted after 2nd paragraph */}
@@ -457,7 +457,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {related.map((rel) => (
                 <article
                   key={rel.id}
@@ -469,17 +469,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                         <img
                           src={rel.cover_image_url}
                           alt={rel.title}
+                          loading="lazy"
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         />
                       </Link>
                     )}
                     <Link href={`/news/${rel.slug}`}>
-                      <h3 className="font-headline font-bold text-base hover:text-[#dc2626] transition-colors line-clamp-2">
+                      <h3 className="font-headline font-bold text-base hover:text-[#dc2626] transition-colors line-clamp-2 break-words">
                         {rel.title}
                       </h3>
                     </Link>
                     {rel.excerpt && (
-                      <p className="text-xs text-[var(--text-secondary)] mt-1.5 line-clamp-2">
+                      <p className="text-xs text-[var(--text-secondary)] mt-1.5 line-clamp-2 break-words">
                         {rel.excerpt}
                       </p>
                     )}

@@ -578,77 +578,79 @@ export default function AdminPage() {
         )}
 
         {/* Navigation Tabs */}
-        <div className="flex items-center gap-1.5 sm:gap-2 border-b border-[var(--border-light)] pb-3 mb-8 overflow-x-auto no-scrollbar">
-          <button
-            onClick={() => setActiveTab('overview')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 ${
-              activeTab === 'overview'
-                ? 'bg-[#dc2626] text-white shadow-sm'
-                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-            }`}
-          >
-            <BarChart3 className="w-3.5 h-3.5" />
-            <span>Overview</span>
-          </button>
+        <div className="overflow-x-auto no-scrollbar pb-1 border-b border-[var(--border-light)] mb-8">
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-max">
+            <button
+              onClick={() => setActiveTab('overview')}
+              className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 cursor-pointer ${
+                activeTab === 'overview'
+                  ? 'bg-[#dc2626] text-white shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+              }`}
+            >
+              <BarChart3 className="w-3.5 h-3.5" />
+              <span>Overview</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('pending')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 relative ${
-              activeTab === 'pending'
-                ? 'bg-[#dc2626] text-white shadow-sm'
-                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-            }`}
-          >
-            <Clock className="w-3.5 h-3.5" />
-            <span>Pending Approvals</span>
-            {pendingList.length > 0 && (
-              <span
-                className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
-                  activeTab === 'pending'
-                    ? 'bg-white text-[#dc2626]'
-                    : 'bg-[#dc2626] text-white'
-                }`}
-              >
-                {pendingList.length}
-              </span>
-            )}
-          </button>
+            <button
+              onClick={() => setActiveTab('pending')}
+              className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 relative cursor-pointer ${
+                activeTab === 'pending'
+                  ? 'bg-[#dc2626] text-white shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+              }`}
+            >
+              <Clock className="w-3.5 h-3.5" />
+              <span>Pending Approvals</span>
+              {pendingList.length > 0 && (
+                <span
+                  className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                    activeTab === 'pending'
+                      ? 'bg-white text-[#dc2626]'
+                      : 'bg-[#dc2626] text-white'
+                  }`}
+                >
+                  {pendingList.length}
+                </span>
+              )}
+            </button>
 
-          <button
-            onClick={() => setActiveTab('articles')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 ${
-              activeTab === 'articles'
-                ? 'bg-[#dc2626] text-white shadow-sm'
-                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-            }`}
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span>All Articles</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('articles')}
+              className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 cursor-pointer ${
+                activeTab === 'articles'
+                  ? 'bg-[#dc2626] text-white shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+              }`}
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>All Articles</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('users')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 ${
-              activeTab === 'users'
-                ? 'bg-[#dc2626] text-white shadow-sm'
-                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-            }`}
-          >
-            <Users className="w-3.5 h-3.5" />
-            <span>Users & Roles</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('users')}
+              className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 cursor-pointer ${
+                activeTab === 'users'
+                  ? 'bg-[#dc2626] text-white shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+              }`}
+            >
+              <Users className="w-3.5 h-3.5" />
+              <span>Users & Roles</span>
+            </button>
 
-          <button
-            onClick={() => setActiveTab('categories')}
-            className={`px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 ${
-              activeTab === 'categories'
-                ? 'bg-[#dc2626] text-white shadow-sm'
-                : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-            }`}
-          >
-            <FolderTree className="w-3.5 h-3.5" />
-            <span>Categories</span>
-          </button>
+            <button
+              onClick={() => setActiveTab('categories')}
+              className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shrink-0 cursor-pointer ${
+                activeTab === 'categories'
+                  ? 'bg-[#dc2626] text-white shadow-sm'
+                  : 'text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+              }`}
+            >
+              <FolderTree className="w-3.5 h-3.5" />
+              <span>Categories</span>
+            </button>
+          </div>
         </div>
 
         {/* ========================================================
@@ -1032,7 +1034,7 @@ export default function AdminPage() {
 
             {/* Articles Table */}
             <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl overflow-hidden shadow-sm">
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto no-scrollbar scrollbar-thin">
                 <table className="w-full text-left border-collapse text-xs">
                   <thead>
                     <tr className="border-b border-[var(--border-light)] bg-[var(--bg-secondary)] text-[var(--text-muted)] font-bold uppercase tracking-wider text-[11px]">
@@ -1295,7 +1297,7 @@ export default function AdminPage() {
 
             {/* Users Table */}
             <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl overflow-hidden shadow-sm">
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto no-scrollbar scrollbar-thin">
                 <table className="w-full text-left border-collapse text-xs">
                   <thead>
                     <tr className="border-b border-[var(--border-light)] bg-[var(--bg-secondary)] text-[var(--text-muted)] font-bold uppercase tracking-wider text-[11px]">
@@ -1591,8 +1593,8 @@ export default function AdminPage() {
             MODAL 2: REJECT ARTICLE WITH REASON MODAL
         ======================================================== */}
         {rejectingArticle && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-            <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-lg shadow-2xl p-6">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+            <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-lg max-h-[85vh] overflow-y-auto shadow-2xl p-5 sm:p-6">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2 text-red-600">
                   <XCircle className="w-5 h-5" />
@@ -1602,7 +1604,7 @@ export default function AdminPage() {
                 </div>
                 <button
                   onClick={() => setRejectingArticle(null)}
-                  className="text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                  className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)]"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -1628,14 +1630,14 @@ export default function AdminPage() {
               <div className="flex items-center justify-end gap-2.5">
                 <button
                   onClick={() => setRejectingArticle(null)}
-                  className="px-4 py-2 rounded-xl border border-[var(--border-light)] text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                  className="min-h-[44px] px-4 py-2 rounded-xl border border-[var(--border-light)] text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleReject}
                   disabled={isPendingAction}
-                  className="px-5 py-2 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                  className="min-h-[44px] px-5 py-2 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   Confirm Rejection
                 </button>
@@ -1648,15 +1650,15 @@ export default function AdminPage() {
             MODAL 3: ADD / EDIT CATEGORY MODAL
         ======================================================== */}
         {isAddCatModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-            <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-md shadow-2xl p-6">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+            <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-md max-h-[85vh] overflow-y-auto shadow-2xl p-5 sm:p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-headline font-bold text-lg">
                   {editingCategory ? 'Edit News Desk' : 'Create New News Desk'}
                 </h3>
                 <button
                   onClick={() => setIsAddCatModalOpen(false)}
-                  className="text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                  className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -1715,8 +1717,8 @@ export default function AdminPage() {
             MODAL 4: CONFIRM DELETE MODAL
         ======================================================== */}
         {confirmDeleteModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-            <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-sm shadow-2xl p-6 text-center">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+            <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-sm max-h-[85vh] overflow-y-auto shadow-2xl p-5 sm:p-6 text-center">
               <div className="w-12 h-12 rounded-full bg-red-100 text-[#dc2626] dark:bg-red-950/60 dark:text-red-400 flex items-center justify-center mx-auto mb-3">
                 <Trash2 className="w-6 h-6" />
               </div>
@@ -1736,14 +1738,14 @@ export default function AdminPage() {
               <div className="flex items-center justify-center gap-3">
                 <button
                   onClick={() => setConfirmDeleteModal(null)}
-                  className="px-4 py-2 rounded-xl border border-[var(--border-light)] text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                  className="min-h-[44px] px-4 py-2 rounded-xl border border-[var(--border-light)] text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleConfirmDelete}
                   disabled={isPendingAction}
-                  className="px-5 py-2 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                  className="min-h-[44px] px-5 py-2 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   Yes, Delete
                 </button>
@@ -1756,18 +1758,18 @@ export default function AdminPage() {
             MODAL 5: VIDEO PREVIEW MODAL
         ======================================================== */}
         {videoPreviewModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
-            <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fade-in">
+            <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-2xl max-h-[90vh] shadow-2xl overflow-hidden flex flex-col">
               <div className="flex items-center justify-between p-4 border-b border-[var(--border-light)]">
                 <div className="flex items-center gap-2">
                   <Video className="w-4 h-4 text-[#dc2626]" />
-                  <h3 className="font-headline font-bold text-sm truncate max-w-md">
+                  <h3 className="font-headline font-bold text-sm truncate max-w-xs sm:max-w-md">
                     {videoPreviewModal.title}
                   </h3>
                 </div>
                 <button
                   onClick={() => setVideoPreviewModal(null)}
-                  className="p-1 rounded-lg hover:bg-[var(--bg-secondary)] text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
+                  className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg hover:bg-[var(--bg-secondary)] text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -1778,6 +1780,7 @@ export default function AdminPage() {
                   src={videoPreviewModal.url}
                   controls
                   autoPlay
+                  playsInline
                   preload="metadata"
                   className="w-full h-full object-contain"
                 >
@@ -1807,7 +1810,7 @@ export default function AdminPage() {
                       handleToggleVideoApproval(videoPreviewModal.id, newVal);
                       setVideoPreviewModal({ ...videoPreviewModal, isApproved: newVal });
                     }}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer ${
+                    className={`min-h-[44px] px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer ${
                       videoPreviewModal.isApproved
                         ? 'bg-amber-600 hover:bg-amber-700 text-white'
                         : 'bg-emerald-600 hover:bg-emerald-700 text-white'
@@ -1818,7 +1821,7 @@ export default function AdminPage() {
 
                   <button
                     onClick={() => setVideoPreviewModal(null)}
-                    className="px-3.5 py-1.5 rounded-lg border border-[var(--border-light)] text-xs font-semibold hover:bg-[var(--bg-secondary)] cursor-pointer"
+                    className="min-h-[44px] px-4 py-1.5 rounded-lg border border-[var(--border-light)] text-xs font-semibold hover:bg-[var(--bg-secondary)] cursor-pointer"
                   >
                     Close
                   </button>
@@ -1832,8 +1835,8 @@ export default function AdminPage() {
             MODAL 6: REPLACE VIDEO MODAL
         ======================================================== */}
         {replaceVideoModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-            <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-md shadow-2xl p-6">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+            <div className="bg-[var(--card-bg)] border border-[var(--border-light)] rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto shadow-2xl p-5 sm:p-6">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <Upload className="w-5 h-5 text-[#dc2626]" />
@@ -1844,7 +1847,7 @@ export default function AdminPage() {
                     if (!isUploadingReplaceVideo) setReplaceVideoModal(null);
                   }}
                   disabled={isUploadingReplaceVideo}
-                  className="p-1 rounded-lg hover:bg-[var(--bg-secondary)] text-[var(--text-muted)] cursor-pointer"
+                  className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg hover:bg-[var(--bg-secondary)] text-[var(--text-muted)] cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>

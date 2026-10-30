@@ -54,9 +54,9 @@ export function Footer() {
                 <span>{feedback.message}</span>
               </div>
             ) : (
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <div className="relative flex-1">
-                  <Mail className="w-4 h-4 absolute left-3 top-3 text-[var(--text-muted)]" />
+                  <Mail className="w-4 h-4 absolute left-3 top-3.5 text-[var(--text-muted)]" />
                   <input
                     type="email"
                     required
@@ -64,13 +64,13 @@ export function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address..."
                     disabled={loading}
-                    className="w-full pl-9 pr-3 py-2.5 text-sm rounded-lg bg-[var(--card-bg)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors disabled:opacity-50"
+                    className="w-full pl-10 pr-3 py-3 text-base sm:text-sm min-h-[44px] rounded-xl bg-[var(--card-bg)] border border-[var(--border-light)] focus:border-[#dc2626] focus:outline-none transition-colors disabled:opacity-50"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-5 py-2.5 rounded-lg bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-semibold tracking-wide uppercase shadow-sm transition-colors flex items-center gap-1.5 shrink-0 disabled:opacity-50 cursor-pointer"
+                  className="min-h-[44px] px-6 py-3 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-semibold tracking-wide uppercase shadow-sm transition-colors flex items-center justify-center gap-1.5 shrink-0 disabled:opacity-50 cursor-pointer"
                 >
                   {loading ? (
                     <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -89,9 +89,9 @@ export function Footer() {
 
       {/* Main Multi-column Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Col 1: Brand & Credo */}
-          <div className="col-span-2">
+          <div className="col-span-1 sm:col-span-2">
             <Link href="/" className="inline-block group mb-3">
               <span className="font-headline text-2xl font-extrabold tracking-tight">
                 What&apos;s Happening<span className="text-[#dc2626]">.</span>

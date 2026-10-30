@@ -90,7 +90,7 @@ export function NotificationBell() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label="View notifications"
-          className="relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-[var(--text-primary)] transition-all cursor-pointer flex items-center justify-center border border-transparent hover:border-[var(--border-light)]"
+          className="relative min-w-[44px] min-h-[44px] p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-[var(--text-primary)] transition-all cursor-pointer flex items-center justify-center border border-transparent hover:border-[var(--border-light)]"
         >
           <Bell className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
 
@@ -104,7 +104,7 @@ export function NotificationBell() {
 
         {/* DROPDOWN POPOVER */}
         {isOpen && (
-          <div className="absolute right-0 top-11 w-80 sm:w-96 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-light)] shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150 overflow-hidden flex flex-col">
+          <div className="absolute right-0 top-12 w-[calc(100vw-2rem)] sm:w-96 max-w-sm rounded-2xl bg-[var(--card-bg)] border border-[var(--border-light)] shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150 overflow-hidden flex flex-col">
             {/* Header */}
             <div className="p-3.5 sm:p-4 border-b border-[var(--border-light)] flex items-center justify-between bg-[var(--bg-secondary)]/50">
               <div className="flex items-center gap-2">
@@ -220,7 +220,7 @@ export function NotificationBell() {
 
       {/* REALTIME TOAST POPUP */}
       {activeToast && (
-        <div className="fixed bottom-5 right-4 sm:right-6 z-50 max-w-sm sm:max-w-md w-full animate-slide-up shadow-2xl">
+        <div className="fixed bottom-4 left-3 right-3 sm:left-auto sm:right-6 sm:max-w-md z-50 animate-slide-up shadow-2xl">
           <div className="p-4 rounded-2xl bg-[var(--card-bg)] border border-[#dc2626]/30 dark:border-red-800 text-[var(--text-primary)] flex items-start gap-3 backdrop-blur-md">
             <div className="w-8 h-8 rounded-xl bg-red-100 text-[#dc2626] dark:bg-red-950 dark:text-red-400 flex items-center justify-center shrink-0">
               <Sparkles className="w-4 h-4" />

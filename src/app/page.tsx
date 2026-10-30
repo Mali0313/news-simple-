@@ -67,15 +67,15 @@ export default async function HomePage() {
       <AdBanner slot="leaderboard" />
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 py-8 w-full space-y-12">
+      <main className="flex-1 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 w-full space-y-10 sm:space-y-12">
         {/* 2. THE FRONT PAGE: BIG FEATURED STORY + SIDE STORIES */}
-        <section id="top-stories" className="scroll-mt-28 lg:scroll-mt-36 border-b border-[var(--border-light)] pb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <section id="top-stories" className="scroll-mt-28 lg:scroll-mt-36 border-b border-[var(--border-light)] pb-10 sm:pb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             {/* Lead Story (Col 1-7) */}
             {heroArticle && (
               <article className="lg:col-span-7 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-2 mb-2 text-xs">
+                  <div className="flex flex-wrap items-center gap-2 mb-2 text-xs">
                     {heroArticle.category && (
                       <Link
                         href={`/category/${heroArticle.category.slug}`}
@@ -96,12 +96,12 @@ export default async function HomePage() {
                   </div>
 
                   <Link href={`/news/${heroArticle.slug}`} className="group">
-                    <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-black leading-[1.1] tracking-tight group-hover:text-[#dc2626] transition-colors mb-3">
+                    <h2 className="font-headline text-2xl min-[480px]:text-3xl sm:text-4xl md:text-5xl font-black leading-[1.12] tracking-tight group-hover:text-[#dc2626] transition-colors mb-3 break-words">
                       {heroArticle.title}
                     </h2>
                   </Link>
 
-                  <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed font-sans mb-5">
+                  <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed font-sans mb-5 break-words">
                     {heroArticle.excerpt}
                   </p>
 
@@ -114,6 +114,7 @@ export default async function HomePage() {
                       <img
                         src={heroArticle.cover_image_url}
                         alt={heroArticle.title}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       {heroArticle.video_url && heroArticle.is_approved && (
@@ -127,7 +128,7 @@ export default async function HomePage() {
                   <div className="flex items-center justify-between mt-4 text-xs text-[var(--text-muted)] border-t border-[var(--border-light)] pt-3">
                     <Link
                       href={`/author/${heroArticle.author_id}`}
-                      className="font-semibold text-[var(--text-primary)] hover:text-[#dc2626] transition-colors"
+                      className="font-semibold text-[var(--text-primary)] hover:text-[#dc2626] transition-colors min-h-[44px] flex items-center"
                     >
                       By {heroArticle.author?.full_name || 'Senior Correspondent'}
                     </Link>
@@ -238,11 +239,11 @@ export default async function HomePage() {
                 </Link>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {latestArticles.map((art) => (
                   <article
                     key={art.id}
-                    className="p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
+                    className="p-4 sm:p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
                   >
                     <div>
                       {art.cover_image_url && (
@@ -253,6 +254,7 @@ export default async function HomePage() {
                           <img
                             src={art.cover_image_url}
                             alt={art.title}
+                            loading="lazy"
                             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                           />
                           {art.video_url && art.is_approved && (
@@ -263,7 +265,7 @@ export default async function HomePage() {
                         </Link>
                       )}
 
-                      <div className="flex items-center gap-2 mb-1 text-[11px] text-[var(--text-muted)]">
+                      <div className="flex flex-wrap items-center gap-2 mb-1 text-[11px] text-[var(--text-muted)]">
                         {art.category && (
                           <Link
                             href={`/category/${art.category.slug}`}
@@ -282,12 +284,12 @@ export default async function HomePage() {
                       </div>
 
                       <Link href={`/news/${art.slug}`}>
-                        <h3 className="font-headline font-bold text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2">
+                        <h3 className="font-headline font-bold text-base sm:text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2 break-words">
                           {art.title}
                         </h3>
                       </Link>
 
-                      <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2 leading-relaxed">
+                      <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2 leading-relaxed break-words">
                         {art.excerpt}
                       </p>
                     </div>
@@ -295,7 +297,7 @@ export default async function HomePage() {
                     <div className="mt-4 pt-3 border-t border-[var(--border-light)] flex items-center justify-between text-xs text-[var(--text-muted)]">
                       <Link
                         href={`/author/${art.author_id}`}
-                        className="hover:text-[#dc2626] transition-colors"
+                        className="hover:text-[#dc2626] transition-colors min-h-[36px] flex items-center"
                       >
                         {art.author?.full_name || 'Staff Reporter'}
                       </Link>
@@ -361,29 +363,29 @@ export default async function HomePage() {
         {/* Section A: Pakistan Desk */}
         {pakistanArticles.length > 0 && (
           <section id="pakistan" className="scroll-mt-28 lg:scroll-mt-36 border-b border-[var(--border-light)] pb-12">
-            <div className="flex items-center justify-between border-b-2 border-[#dc2626] pb-3 mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-[#dc2626] pb-3 mb-6 sm:mb-8">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#dc2626] block">
                   Regional Hub
                 </span>
-                <h2 className="font-headline text-3xl font-extrabold tracking-tight">
+                <h2 className="font-headline text-2xl sm:text-3xl font-extrabold tracking-tight break-words">
                   Pakistan Affairs & Economy
                 </h2>
               </div>
               <Link
                 href="/category/pakistan"
-                className="text-xs font-semibold text-[#dc2626] hover:underline uppercase tracking-wider flex items-center gap-1"
+                className="text-xs font-semibold text-[#dc2626] hover:underline uppercase tracking-wider flex items-center gap-1 self-start sm:self-auto min-h-[36px]"
               >
                 <span>Explore Desk</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {pakistanArticles.map((art) => (
                 <article
                   key={art.id}
-                  className="p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
+                  className="p-4 sm:p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
                 >
                   <div>
                     {art.cover_image_url && (
@@ -391,6 +393,7 @@ export default async function HomePage() {
                         <img
                           src={art.cover_image_url}
                           alt={art.title}
+                          loading="lazy"
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         />
                         {art.video_url && art.is_approved && (
@@ -401,16 +404,16 @@ export default async function HomePage() {
                       </Link>
                     )}
                     <Link href={`/news/${art.slug}`}>
-                      <h3 className="font-headline font-bold text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2">
+                      <h3 className="font-headline font-bold text-base sm:text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2 break-words">
                         {art.title}
                       </h3>
                     </Link>
-                    <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2">
+                    <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2 leading-relaxed break-words">
                       {art.excerpt}
                     </p>
                   </div>
                   <div className="mt-4 pt-3 border-t border-[var(--border-light)] flex items-center justify-between text-xs text-[var(--text-muted)]">
-                    <span>{art.author?.full_name}</span>
+                    <span className="truncate max-w-[150px]">{art.author?.full_name || 'Staff Reporter'}</span>
                     <BookmarkButton articleId={art.id} />
                   </div>
                 </article>
@@ -422,29 +425,29 @@ export default async function HomePage() {
         {/* Section B: World Affairs & Politics */}
         {worldArticles.length > 0 && (
           <section id="world" className="scroll-mt-28 lg:scroll-mt-36 border-b border-[var(--border-light)] pb-12">
-            <div className="flex items-center justify-between border-b-2 border-[#dc2626] pb-3 mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-[#dc2626] pb-3 mb-6 sm:mb-8">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#dc2626] block">
                   Foreign Bureaus
                 </span>
-                <h2 className="font-headline text-3xl font-extrabold tracking-tight">
+                <h2 className="font-headline text-2xl sm:text-3xl font-extrabold tracking-tight break-words">
                   World & Geopolitics
                 </h2>
               </div>
               <Link
                 href="/category/world"
-                className="text-xs font-semibold text-[#dc2626] hover:underline uppercase tracking-wider flex items-center gap-1"
+                className="text-xs font-semibold text-[#dc2626] hover:underline uppercase tracking-wider flex items-center gap-1 self-start sm:self-auto min-h-[36px]"
               >
                 <span>Explore Desk</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {worldArticles.map((art) => (
                 <article
                   key={art.id}
-                  className="p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
+                  className="p-4 sm:p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
                 >
                   <div>
                     {art.cover_image_url && (
@@ -452,6 +455,7 @@ export default async function HomePage() {
                         <img
                           src={art.cover_image_url}
                           alt={art.title}
+                          loading="lazy"
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         />
                         {art.video_url && art.is_approved && (
@@ -462,16 +466,16 @@ export default async function HomePage() {
                       </Link>
                     )}
                     <Link href={`/news/${art.slug}`}>
-                      <h3 className="font-headline font-bold text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2">
+                      <h3 className="font-headline font-bold text-base sm:text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2 break-words">
                         {art.title}
                       </h3>
                     </Link>
-                    <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2">
+                    <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2 leading-relaxed break-words">
                       {art.excerpt}
                     </p>
                   </div>
                   <div className="mt-4 pt-3 border-t border-[var(--border-light)] flex items-center justify-between text-xs text-[var(--text-muted)]">
-                    <span>{art.author?.full_name}</span>
+                    <span className="truncate max-w-[150px]">{art.author?.full_name || 'Staff Reporter'}</span>
                     <BookmarkButton articleId={art.id} />
                   </div>
                 </article>
@@ -483,29 +487,29 @@ export default async function HomePage() {
         {/* Section C: Technology, AI & Science */}
         {techArticles.length > 0 && (
           <section id="business-tech" className="scroll-mt-28 lg:scroll-mt-36 border-b border-[var(--border-light)] pb-12">
-            <div className="flex items-center justify-between border-b-2 border-[#dc2626] pb-3 mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-[#dc2626] pb-3 mb-6 sm:mb-8">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#dc2626] block">
                   Frontier Computing
                 </span>
-                <h2 className="font-headline text-3xl font-extrabold tracking-tight">
+                <h2 className="font-headline text-2xl sm:text-3xl font-extrabold tracking-tight break-words">
                   Technology & Science
                 </h2>
               </div>
               <Link
                 href="/category/technology"
-                className="text-xs font-semibold text-[#dc2626] hover:underline uppercase tracking-wider flex items-center gap-1"
+                className="text-xs font-semibold text-[#dc2626] hover:underline uppercase tracking-wider flex items-center gap-1 self-start sm:self-auto min-h-[36px]"
               >
                 <span>Explore Desk</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {techArticles.map((art) => (
                 <article
                   key={art.id}
-                  className="p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
+                  className="p-4 sm:p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
                 >
                   <div>
                     {art.cover_image_url && (
@@ -513,6 +517,7 @@ export default async function HomePage() {
                         <img
                           src={art.cover_image_url}
                           alt={art.title}
+                          loading="lazy"
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         />
                         {art.video_url && art.is_approved && (
@@ -523,16 +528,16 @@ export default async function HomePage() {
                       </Link>
                     )}
                     <Link href={`/news/${art.slug}`}>
-                      <h3 className="font-headline font-bold text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2">
+                      <h3 className="font-headline font-bold text-base sm:text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2 break-words">
                         {art.title}
                       </h3>
                     </Link>
-                    <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2">
+                    <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2 leading-relaxed break-words">
                       {art.excerpt}
                     </p>
                   </div>
                   <div className="mt-4 pt-3 border-t border-[var(--border-light)] flex items-center justify-between text-xs text-[var(--text-muted)]">
-                    <span>{art.author?.full_name}</span>
+                    <span className="truncate max-w-[150px]">{art.author?.full_name || 'Staff Reporter'}</span>
                     <BookmarkButton articleId={art.id} />
                   </div>
                 </article>
@@ -544,29 +549,29 @@ export default async function HomePage() {
         {/* Section D: Sports, Culture & Opinion */}
         {sportsArticles.length > 0 && (
           <section id="sports" className="scroll-mt-28 lg:scroll-mt-36 pb-8">
-            <div className="flex items-center justify-between border-b-2 border-[#dc2626] pb-3 mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-[#dc2626] pb-3 mb-6 sm:mb-8">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#dc2626] block">
                   Culture & Sport
                 </span>
-                <h2 className="font-headline text-3xl font-extrabold tracking-tight">
+                <h2 className="font-headline text-2xl sm:text-3xl font-extrabold tracking-tight break-words">
                   Sports, Arts & The Editorial Board
                 </h2>
               </div>
               <Link
                 href="/category/sports"
-                className="text-xs font-semibold text-[#dc2626] hover:underline uppercase tracking-wider flex items-center gap-1"
+                className="text-xs font-semibold text-[#dc2626] hover:underline uppercase tracking-wider flex items-center gap-1 self-start sm:self-auto min-h-[36px]"
               >
                 <span>Explore Desk</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {sportsArticles.map((art) => (
                 <article
                   key={art.id}
-                  className="p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
+                  className="p-4 sm:p-5 rounded-2xl border border-[var(--border-light)] bg-[var(--card-bg)] shadow-sm hover:border-[#dc2626] transition-all flex flex-col justify-between"
                 >
                   <div>
                     {art.cover_image_url && (
@@ -574,6 +579,7 @@ export default async function HomePage() {
                         <img
                           src={art.cover_image_url}
                           alt={art.title}
+                          loading="lazy"
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         />
                         {art.video_url && art.is_approved && (
@@ -584,16 +590,16 @@ export default async function HomePage() {
                       </Link>
                     )}
                     <Link href={`/news/${art.slug}`}>
-                      <h3 className="font-headline font-bold text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2">
+                      <h3 className="font-headline font-bold text-base sm:text-lg leading-snug hover:text-[#dc2626] transition-colors line-clamp-2 break-words">
                         {art.title}
                       </h3>
                     </Link>
-                    <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2">
+                    <p className="text-xs text-[var(--text-secondary)] mt-2 line-clamp-2 leading-relaxed break-words">
                       {art.excerpt}
                     </p>
                   </div>
                   <div className="mt-4 pt-3 border-t border-[var(--border-light)] flex items-center justify-between text-xs text-[var(--text-muted)]">
-                    <span>{art.author?.full_name}</span>
+                    <span className="truncate max-w-[150px]">{art.author?.full_name || 'Staff Reporter'}</span>
                     <BookmarkButton articleId={art.id} />
                   </div>
                 </article>

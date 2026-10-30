@@ -114,25 +114,25 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-light)] w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden p-5 sm:p-6 relative animate-scale-in"
+        className="bg-[var(--card-bg)] text-[var(--text-primary)] border border-[var(--border-light)] w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl shadow-2xl p-4 sm:p-6 relative animate-scale-in"
       >
         {/* Search Input Bar with Workable Submit Button */}
-        <form onSubmit={handleSubmit} className="flex items-center gap-3 border-b border-[var(--border-light)] pb-4">
+        <form onSubmit={handleSubmit} className="flex items-center gap-2 sm:gap-3 border-b border-[var(--border-light)] pb-4">
           <Search className="w-5 h-5 text-[#dc2626] shrink-0" />
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search news, topics, authors, editorials..."
-            className="w-full bg-transparent text-sm sm:text-base focus:outline-none placeholder:text-[var(--text-muted)]"
+            placeholder="Search news, topics, authors..."
+            className="flex-1 min-w-0 bg-transparent text-base sm:text-sm focus:outline-none placeholder:text-[var(--text-muted)]"
           />
 
           {query.trim().length > 0 && (
             <button
               type="button"
               onClick={() => setQuery('')}
-              className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+              className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text-primary)] cursor-pointer"
               title="Clear input"
             >
               <X className="w-4 h-4" />
@@ -141,7 +141,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
           <button
             type="submit"
-            className="px-4 py-2 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-bold uppercase tracking-wider transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer shadow-sm"
+            className="min-h-[40px] px-3 sm:px-4 py-2 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white text-xs font-bold uppercase tracking-wider transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer shadow-sm"
           >
             <span>Search</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -150,7 +150,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="p-2 min-h-[40px] min-w-[40px] flex items-center justify-center rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
             title="Close modal"
           >
             <X className="w-5 h-5" />
