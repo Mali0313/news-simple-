@@ -33,16 +33,16 @@ interface ArticlePageProps {
 export async function generateMetadata({ params }: ArticlePageProps) {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://whatshappening.news';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wiredesk.news';
 
-  if (!article) return { title: 'Story Not Found | What\'s Happening' };
+  if (!article) return { title: 'Story Not Found | WireDesk' };
 
   const articleUrl = `${baseUrl}/news/${article.slug}`;
   const defaultImage = 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=1200&q=80';
   const ogImage = article.cover_image_url || defaultImage;
 
   return {
-    title: `${article.title} | What's Happening`,
+    title: `${article.title} | WireDesk`,
     description: article.excerpt || article.content.slice(0, 160),
     alternates: {
       canonical: articleUrl,
@@ -52,10 +52,10 @@ export async function generateMetadata({ params }: ArticlePageProps) {
       title: article.title,
       description: article.excerpt,
       url: articleUrl,
-      siteName: "What's Happening",
+      siteName: "WireDesk",
       publishedTime: article.published_at || article.created_at,
       modifiedTime: article.created_at,
-      authors: [article.author?.full_name || 'What\'s Happening Bureau'],
+      authors: [article.author?.full_name || 'WireDesk Bureau'],
       tags: article.tags || [],
       images: [
         {
@@ -78,7 +78,7 @@ export async function generateMetadata({ params }: ArticlePageProps) {
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://whatshappening.news';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wiredesk.news';
 
   if (!article) {
     notFound();
@@ -116,7 +116,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     ],
     publisher: {
       '@type': 'NewsMediaOrganization',
-      name: "What's Happening",
+      name: "WireDesk",
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
@@ -289,7 +289,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </video>
             </div>
             <figcaption className="text-[11px] text-[var(--text-muted)] mt-2 italic px-4 sm:px-1 flex items-center justify-between">
-              <span>Video report &bull; What&apos;s Happening News Desk</span>
+              <span>Video report &bull; WireDesk News Desk</span>
               <span>All rights reserved.</span>
             </figcaption>
           </figure>
@@ -306,7 +306,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               />
             </div>
             <figcaption className="text-[11px] text-[var(--text-muted)] mt-2 italic px-1 flex items-center justify-between">
-              <span>Photo dispatch from What&apos;s Happening Global Photo Service.</span>
+              <span>Photo dispatch from WireDesk Global Photo Service.</span>
               <span>All rights reserved.</span>
             </figcaption>
           </figure>
@@ -417,7 +417,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
               <p className="text-xs text-[var(--text-secondary)] mt-2 leading-relaxed">
                 {article.author?.bio ||
-                  'Senior Correspondent covering investigative and technological developments for What\'s Happening.'}
+                  'Senior Correspondent covering investigative and technological developments for WireDesk.'}
               </p>
 
               <div className="mt-3">

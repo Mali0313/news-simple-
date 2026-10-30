@@ -593,7 +593,7 @@ export async function getAdminSubscribers() {
     return {
       success: true,
       data: [
-        { id: 'sub-1', email: 'editor@whatshappening.news', created_at: '2026-10-25T10:00:00Z' },
+        { id: 'sub-1', email: 'editor@wiredesk.news', created_at: '2026-10-25T10:00:00Z' },
         { id: 'sub-2', email: 'reader.daily@gmail.com', created_at: '2026-10-26T14:30:00Z' },
         { id: 'sub-3', email: 'investor.capital@outlook.com', created_at: '2026-10-27T08:15:00Z' },
       ],
@@ -618,7 +618,7 @@ export async function getAdminSubscribers() {
   return {
     success: true,
     data: [
-      { id: 'sub-1', email: 'editor@whatshappening.news', created_at: '2026-10-25T10:00:00Z' },
+      { id: 'sub-1', email: 'editor@wiredesk.news', created_at: '2026-10-25T10:00:00Z' },
       { id: 'sub-2', email: 'reader.daily@gmail.com', created_at: '2026-10-26T14:30:00Z' },
     ],
   };

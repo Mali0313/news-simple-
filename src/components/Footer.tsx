@@ -94,7 +94,7 @@ export function Footer() {
           <div className="col-span-1 sm:col-span-2">
             <Link href="/" className="inline-block group mb-3">
               <span className="font-headline text-2xl font-extrabold tracking-tight">
-                What&apos;s Happening<span className="text-[#dc2626]">.</span>
+                WireDesk<span className="text-[#dc2626]">.</span>
               </span>
             </Link>
             <p className="text-xs text-[var(--text-secondary)] leading-relaxed max-w-sm">
@@ -158,7 +158,7 @@ export function Footer() {
 
         {/* Bottom copyright & attribution */}
         <div className="pt-8 border-t border-[var(--border-light)] flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--text-muted)] gap-4">
-          <p>&copy; 2026 What&apos;s Happening Media Group Inc. All rights reserved.</p>
+          <p>&copy; 2026 WireDesk Media Group Inc. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#dc2626]" />

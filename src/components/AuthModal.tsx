@@ -101,7 +101,7 @@ export function AuthModal({ isOpen, onClose, mode: controlledMode, initialMode =
         {/* Brand header */}
         <div className="text-center mb-6">
           <div className="text-2xl font-bold font-headline tracking-tight">
-            What&apos;s Happening<span className="text-[#dc2626]">.</span>
+            WireDesk<span className="text-[#dc2626]">.</span>
           </div>
           <p className="text-xs text-[var(--text-muted)] mt-1">
             {mode === 'login'

@@ -60,7 +60,7 @@ export const FALLBACK_AUTHORS = {
     id: 'a0000000-0000-0000-0000-000000000001',
     full_name: 'Tariq Mansoor',
     avatar_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80',
-    bio: 'Senior Diplomatic and South Asian Affairs Correspondent for What\'s Happening.',
+    bio: 'Senior Diplomatic and South Asian Affairs Correspondent for WireDesk.',
     role: 'writer',
   },
   author2: {

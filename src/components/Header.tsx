@@ -257,11 +257,11 @@ export function Header() {
           <div className="text-center flex-1 min-w-0 px-1">
             <Link href="/" className="inline-block group max-w-full">
               <h1 className="font-headline text-2xl min-[480px]:text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--text-primary)] group-hover:opacity-95 transition-opacity truncate">
-                What&apos;s Happening<span className="text-[#dc2626]">.</span>
+                WireDesk<span className="text-[#dc2626]">.</span>
               </h1>
             </Link>
             <p className="hidden md:block text-[11px] tracking-widest uppercase font-serif text-[var(--text-muted)] mt-0.5">
-              Independent Editorial &bull; Accurate, In-Depth, Global Perspective
+              Wire Dispatches &bull; Independent Journalism &bull; Global Perspective
             </p>
           </div>
 

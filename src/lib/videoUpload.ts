@@ -1,5 +1,5 @@
 /**
- * Video Upload Configuration & Utilities for "What's Happening" News Platform
+ * Video Upload Configuration & Utilities for "WireDesk" News Platform
  */
 
 // 1. Single config constant for Maximum File Size: 100 MB

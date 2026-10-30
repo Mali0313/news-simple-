@@ -20,8 +20,8 @@ interface SearchPageProps {
 }
 
 export const metadata = {
-  title: 'Search Archives & Journalism | What\'s Happening',
-  description: 'Search articles, investigations, editorials, and authors across the What\'s Happening platform.',
+  title: 'Search Archives & Journalism | WireDesk',
+  description: 'Search articles, investigations, editorials, and authors across the WireDesk platform.',
 };
 
 async function SearchResults({ query, category }: { query: string; category?: string }) {

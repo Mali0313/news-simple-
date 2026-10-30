@@ -76,7 +76,7 @@ const DEMO_NOTIFICATIONS: NotificationItem[] = [
     id: 'demo-notif-3',
     user_id: 'demo-user',
     article_id: null,
-    title: 'Welcome to What\'s Happening',
+    title: 'Welcome to WireDesk',
     message: 'Explore our latest coverage, bookmark stories for offline reading, and contribute articles.',
     is_read: true,
     created_at: '2026-10-27T08:00:00.000Z',

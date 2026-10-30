@@ -24,10 +24,10 @@ interface CategoryPageProps {
 export async function generateMetadata({ params }: CategoryPageProps) {
   const { slug } = await params;
   const category = await getCategoryBySlug(slug);
-  if (!category) return { title: 'Desk Not Found | What\'s Happening' };
+  if (!category) return { title: 'Desk Not Found | WireDesk' };
 
   return {
-    title: `${category.name} News & Analysis | What's Happening`,
+    title: `${category.name} News & Analysis | WireDesk`,
     description: category.description,
   };
 }

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllPublishedArticles, getCategories } from '@/lib/data/articles';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://whatshappening.news';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wiredesk.news';
 
   // 1. Static Core Pages
   const staticRoutes: MetadataRoute.Sitemap = [

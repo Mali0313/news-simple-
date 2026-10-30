@@ -80,7 +80,7 @@ function LoginForm() {
           Welcome Back<span className="text-[#dc2626]">.</span>
         </h1>
         <p className="text-xs text-[var(--text-muted)] mt-1.5">
-          Sign in to your &ldquo;What&apos;s Happening&rdquo; account to continue reading and writing.
+          Sign in to your &ldquo;WireDesk&rdquo; account to continue reading and writing.
         </p>
       </div>
 

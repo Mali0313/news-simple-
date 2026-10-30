@@ -92,7 +92,7 @@ export default function SignupPage() {
               Create an Account<span className="text-[#dc2626]">.</span>
             </h1>
             <p className="text-xs text-[var(--text-muted)] mt-1.5">
-              Join &ldquo;What&apos;s Happening&rdquo; for independent journalism and deep editorial coverage.
+              Join &ldquo;WireDesk&rdquo; for independent journalism and deep editorial coverage.
             </p>
           </div>
 

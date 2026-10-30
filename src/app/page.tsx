@@ -206,7 +206,7 @@ export default async function HomePage() {
                     Real-time Editorial Wire
                   </h3>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                    Have an urgent story, investigative analysis, or breaking news to report? Publish directly to What&apos;s Happening readers worldwide.
+                    Have an urgent story, investigative analysis, or breaking news to report? Publish directly to WireDesk readers worldwide.
                   </p>
                   <Link
                     href="/write"

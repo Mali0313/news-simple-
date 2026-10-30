@@ -24,10 +24,10 @@ interface AuthorPageProps {
 export async function generateMetadata({ params }: AuthorPageProps) {
   const { id } = await params;
   const author = await getAuthorProfile(id);
-  if (!author) return { title: 'Author Profile | What\'s Happening' };
+  if (!author) return { title: 'Author Profile | WireDesk' };
 
   return {
-    title: `${author.full_name} — Journalist Profile | What's Happening`,
+    title: `${author.full_name} — Journalist Profile | WireDesk`,
     description: author.bio || `Articles and dispatches by ${author.full_name}.`,
   };
 }
@@ -101,7 +101,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
 
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-2xl mb-4">
                 {author.bio ||
-                  'Journalist and essayist contributing field investigations, policy analysis, and foreign affairs reporting to What\'s Happening.'}
+                  'Journalist and essayist contributing field investigations, policy analysis, and foreign affairs reporting to WireDesk.'}
               </p>
 
               <div className="flex items-center justify-center sm:justify-start gap-4 text-xs text-[var(--text-muted)] pt-2 border-t border-[var(--border-light)]">
